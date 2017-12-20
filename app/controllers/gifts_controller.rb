@@ -15,12 +15,13 @@ class GiftsController < ApplicationController
 
   # /gifts/new GET
   def new
+
     @gift = Gift.new
-    @users = User.all
   end
 
   # /gifts POST
   def create
+    byebug
     # implicit rendering
     # VIEW THAT MATCHES THE METHOD OR ACTION NAME
     # explicit rendering
@@ -53,7 +54,7 @@ class GiftsController < ApplicationController
       # Tell the gift what they did wrong
       flash[:error] = @gift.errors.full_messages
       redirect_to new_gift_path
-    end    
+    end
     # double check if gift works and if it doesnt do something else
   end
 

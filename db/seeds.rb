@@ -11,8 +11,9 @@
 
 20.times do
   User.create(username: Faker::Name.name)
+  Item.create(name: Faker::Cat.name, price: rand(1...100))
 end
 
-100.times do
-  Gift.create(name: Faker::Cat.name, description: Faker::Cat.breed, rating: 10, user: User.all.sample)
+50.times do
+  @user = User.all.sample.items << Item.all.sample
 end
